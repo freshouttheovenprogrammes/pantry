@@ -11,27 +11,46 @@ class PantryTest < Minitest::Test
     assert_instance_of Pantry, pantry
   end
 
-  def test_that_pantry_is_empty
+  def test_that_pantry_is_empty_can_be_restocked
     pantry = Pantry.new
 
     assert_equal ({}), pantry.stock
+
+    pantry.restock("Cheese", 10)
+
+    assert_equal ({"Cheese" => 10}), pantry.stock
   end
 
   def test_that_pantry_has_cheez
     pantry = Pantry.new
     pantry.add_ingredient("Cheese", 500)
 
-
-
     assert_equal 1, pantry.stock.length
   end
 
-  def test_case_name
+  def test_can_add_to_shopping_list
     pantry = Pantry.new
     r = Recipe.new("Cheese Pizza")
     r.add_ingredient("Cheese", 20)
     r.add_ingredient("Flour", 20)
-    binding.pry
     pantry.add_to_shopping_list(r)
+
+    assert_equal 1, pantry.shopping_list.length
   end
+  def test_stuff
+    pantry = Pantry.new
+    r = Recipe.new("Spaghetti")
+    r.add_ingredient("Spaghetti Noodles", 10)
+    r.add_ingredient("Marinara Sauce", 10)
+    r.add_ingredient("Cheese", 5)
+    pantry.add_to_shopping_list(r)
+
+    assert_equal ({"Cheese" => 25,
+                    "Flour" => 20,
+                    "Spaghetti Noodles" => 10,
+                    "Marinara Sauce" => 10}),
+                    pantry.shopping_list
+  end
+
+
 end

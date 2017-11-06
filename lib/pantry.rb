@@ -6,14 +6,18 @@ class Pantry
   attr_accessor :recipe
 
   def initialize
-    @stock = Hash.new(0)
-    @shopping_list = Hash.new(0)[]
+    @stock = {}
+    @shopping_list = {}
     @recipe = recipe
     @ingredient = ingredient
   end
 
   def stock_check(ingredient)
-    @stock[ingredient]
+    @stock[ingredient] = ingredient
+  end
+
+  def restock(ingredient, amount)
+    @stock[ingredient] = amount
   end
 
   def add_ingredient(ingredient, amount)
@@ -21,7 +25,7 @@ class Pantry
   end
 
   def add_to_shopping_list(recipe)
-    @shopping_list[recipe] = ingredient[:name, :amount]
+    @shopping_list[recipe] = recipe
   end
 
 end
