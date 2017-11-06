@@ -2,14 +2,14 @@ require_relative 'recipe'
 
 class Pantry
 
-  attr_reader :stock, :shopping_list, :name
+  attr_reader :stock, :shopping_list, :ingredient
   attr_accessor :recipe
 
   def initialize
-    @stock = {}
-    @shopping_list = {}
+    @stock = Hash.new(0)
+    @shopping_list = Hash.new(0)[]
     @recipe = recipe
-    @name = recipe[:name]
+    @ingredient = ingredient
   end
 
   def stock_check(ingredient)
@@ -21,7 +21,7 @@ class Pantry
   end
 
   def add_to_shopping_list(recipe)
-    @shopping_list[recipe] = Recipe.new({:name => name})
+    @shopping_list[recipe] = ingredient[:name, :amount]
   end
 
 end

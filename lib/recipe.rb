@@ -1,11 +1,14 @@
 require_relative 'pantry'
 
 class Recipe
+  
   attr_reader :name, :ingredients
 
   def initialize(name)
     @name = name
     @ingredients = {}
+    @ingredient = ingredients[:ingredient]
+    @amount = ingredients[:amount]
   end
 
   def ingredient_types
