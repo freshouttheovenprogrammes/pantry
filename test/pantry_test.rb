@@ -19,9 +19,18 @@ class PantryTest < Minitest::Test
 
   def test_that_pantry_has_cheez
     pantry = Pantry.new
-    pantry.stock_check("Cheese")
-    
-    assert_equal "Cheese", pantry.stock
-    assert_equal ({}), pantry.stock.length
+    pantry.add_ingredient("Cheese", 500)
+
+
+
+    assert_equal 1, pantry.stock.length
+  end
+
+  def test_case_name
+    pantry = Pantry.new
+    r = Recipe.new("Cheese Pizza")
+    r.add_ingredient("Cheese", 20)
+    r.add_ingredient("Flour", 20)
+    pantry.add_to_shopping_list(r)
   end
 end

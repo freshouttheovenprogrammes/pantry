@@ -1,19 +1,25 @@
+require_relative 'recipe'
+
 class Pantry
 
-attr_reader :ingredient_name, :stock
+  attr_reader :stock
 
-
-  def initialize(stock = {})
-    @ingredient_name = stock[:ingredient_name]
-    @stock = stock
+  def initialize
+    @stock = {}
+    @shopping_list = {}
+    # @recipe = Recipe.new
   end
 
-  def stock_check(ingredient_name)
-    @stock[ingredient_name]
+  def stock_check(ingredient)
+    @stock[ingredient]
   end
 
-  def restock(ingredient_name, amount)
-    @stock[ingredient_name] = amount
+  def add_ingredient(ingredient, amount)
+    @stock[ingredient] = amount
+  end
+
+  def add_to_shopping_list(recipe)
+
   end
 
 end
