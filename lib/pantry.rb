@@ -13,11 +13,8 @@ class Pantry
     #
   end
 
-  def stock_check(ingredient)
-    @stock[ingredient] = amount
-  end
-
   def restock(ingredient, amount)
+    # this method takes the ingredient as the key and the amount as the value
     @stock[ingredient] = amount
   end
 
@@ -26,6 +23,8 @@ class Pantry
   end
 
   def add_to_shopping_list(recipe)
+    # this needs to take from add an ingredient and put that into the shopping_liste
+    # will receive the name from the recipe arguement...this will be the key
     @shopping_list[recipe] = @shopping_list[recipe]
   end
 
