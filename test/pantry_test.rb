@@ -19,7 +19,6 @@ class PantryTest < Minitest::Test
   end
 
   def test_that_pantry_has_cheez
-
     pantry = Pantry.new
     pantry.add_ingredient("Cheese", 500)
 
@@ -28,7 +27,6 @@ class PantryTest < Minitest::Test
   end
 
   def test_can_add_to_shopping_list
-    skip
     pantry = Pantry.new
     r = Recipe.new("Cheese Pizza")
     r.add_ingredient("Cheese", 20)
