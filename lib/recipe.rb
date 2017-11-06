@@ -1,4 +1,4 @@
-require_relative 'pantry'
+
 
 class Recipe
 

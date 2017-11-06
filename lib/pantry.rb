@@ -10,7 +10,7 @@ class Pantry
     @stock = {}
     # a different empty hash! This will be what I need!
     @shopping_list = {}
-    #
+    @recipe = Recipe.new(name)
   end
 
   def restock(ingredient, amount)
@@ -23,7 +23,7 @@ class Pantry
   end
 
   def add_to_shopping_list(recipe)
-    # this needs to take from add an ingredient and put that into the shopping_liste
+    # this needs to take from add an ingredient and put that into the shopping_list
     # will receive the name from the recipe arguement...this will be the key
     @shopping_list[recipe] = @shopping_list[recipe]
   end
