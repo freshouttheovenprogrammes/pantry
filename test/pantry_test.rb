@@ -1,6 +1,7 @@
 require './lib/pantry'
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'pry'
 
 class PantryTest < Minitest::Test
 
@@ -20,8 +21,7 @@ class PantryTest < Minitest::Test
     pantry = Pantry.new
     pantry.stock_check("Cheese")
 
-    assert_equal "Cheese", pantry.stock.keys
-    assert_equal 1, pantry.stock.length
+    assert_equal "Cheese", pantry.stock
+    assert_equal ({}), pantry.stock.length
   end
-
 end
