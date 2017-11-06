@@ -14,14 +14,15 @@ class PantryTest < Minitest::Test
   def test_that_pantry_is_empty_can_be_restocked
     pantry = Pantry.new
 
-    assert_equal ({}), pantry.stock
+    assert_equal 0, pantry.stock_check("Cheese")
 
     pantry.restock("Cheese", 10)
 
-    assert_equal ({"Cheese" => 10}), pantry.stock
+    assert_equal 10, pantry.stock_check("Cheese")
   end
 
   def test_that_pantry_has_cheez
+    skip
     pantry = Pantry.new
     pantry.add_ingredient("Cheese", 500)
 
@@ -29,6 +30,7 @@ class PantryTest < Minitest::Test
   end
 
   def test_can_add_to_shopping_list
+    skip
     pantry = Pantry.new
     r = Recipe.new("Cheese Pizza")
     r.add_ingredient("Cheese", 20)
@@ -37,7 +39,9 @@ class PantryTest < Minitest::Test
 
     assert_equal 1, pantry.shopping_list.length
   end
+
   def test_stuff
+    skip
     pantry = Pantry.new
     r = Recipe.new("Spaghetti")
     r.add_ingredient("Spaghetti Noodles", 10)

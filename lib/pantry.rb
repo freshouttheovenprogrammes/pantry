@@ -14,8 +14,7 @@ class Pantry
   end
 
   def stock_check(ingredient)
-    # this counts how much of something I have.
-    @stock[ingredient] = ingredient
+    @stock[ingredient] = amount
   end
 
   def restock(ingredient, amount)
